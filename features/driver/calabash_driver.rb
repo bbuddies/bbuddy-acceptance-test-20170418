@@ -26,6 +26,11 @@ module Bbuddy module AcceptanceTest
       touch(text)
     end
 
+    def touch_when_element_exist(marked)
+      wait_for_element_exists(marked)
+      touch(marked)
+    end
+
     def wait_for_element_and_enter_text(marked, text)
       wait_for_element_exists(marked)
       enter_text(marked, text)
