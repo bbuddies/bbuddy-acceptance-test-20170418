@@ -14,4 +14,8 @@ class DashboardPage < PageBase
     touch('Budgets')
   end
 
+  def go_to_licenses
+    touch('License')
+  end
+
 end
