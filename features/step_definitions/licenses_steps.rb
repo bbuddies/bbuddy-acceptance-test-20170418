@@ -9,9 +9,7 @@ end
 
 When(/^I calculate license fee from "([^"]*)" to "([^"]*)"$/) do |startDate, endDate|
   DashboardPage.open.go_to_fee
-  enter_text("startDate", startDate)
-  enter_text("endDate", endDate)
-  touch "charge"
+  FeePage.open.enter_date(startDate, endDate)
 end
 
 Then(/^I should see the license as below$/) do |table|

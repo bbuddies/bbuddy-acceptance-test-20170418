@@ -22,8 +22,8 @@ Feature: Licenses
 
   Scenario: Verify total license fee in multiple months
     Given existing the following licenses
-      | month | amount |
-      | 2017-03 | 200  |
-      | 2017-06 | 600  |
-    When I calculate license fee from "2017-03-13" to "2017-06-15"
-    Then I should see total license fee is "422.58"
+      | month   | amount |
+      | 2017-03 | 310    |
+      | 2017-06 | 600    |
+    When I calculate license fee from "2017-03-16" to "2017-06-15"
+    Then I should see total license fee is "450"
