@@ -18,3 +18,9 @@ Around do |scenario, block|
   DatabaseCleaner.cleaning(&block)
 end
 
+After do |scenario|
+  if scenario.failed?
+    `kill $(pgrep gulp)`
+  end
+end
+
