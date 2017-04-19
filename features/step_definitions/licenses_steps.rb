@@ -13,7 +13,12 @@ end
 
 
 Then(/^I can see the license as blew$/) do |table|
-  sleep 3
+  sleep 5
   actual = License.all.first
   expect(actual.month).to eq(table.hashes[0][:month])
+end
+
+Then(/^I can see "([^\"]*)"$/) do |text|
+  wait_for_text "yy"
+  sleep 5
 end

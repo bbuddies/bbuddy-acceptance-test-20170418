@@ -7,7 +7,6 @@ Feature: licenses
       | month    | amount |
       | 2017-04  | 200    |
 
-
   Scenario: change the licenses
     Given I have month "2017-04" and amount "200" licenses
     When I add month "2017-04" and amount "500"
@@ -17,5 +16,5 @@ Feature: licenses
 
 
   Scenario: add 0 licenses
-    When I add month "0" and amount "500"
-    Then I should see "yy"
+    When I add month "2017-4" and amount "0"
+    Then I can see "yy"
