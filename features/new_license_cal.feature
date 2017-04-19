@@ -6,7 +6,7 @@ Feature: New License cal
       | month | amount |
       | 2017-01 | 200  |
     When I set license period from "2017-01-03" to "2017-01-30"
-    Then I should see total amount "180.64"
+    Then I should see total amount "180.65"
 
   Scenario: Verify cross month license period
     Given licenses period
@@ -14,7 +14,7 @@ Feature: New License cal
       | 2017-01 | 200  |
       | 2017-06 | 500  |
     When I set license period from "2017-01-03" to "2017-05-30"
-    Then I should see total amount "180.64"
+    Then I should see total amount "187.10"
 
   Scenario: Verify error month license period(1)
     Given licenses period
@@ -31,6 +31,6 @@ Feature: New License cal
       | 2017-01 | 200  |
       | 2017-06 | 500  |
     When I set license period from "2016-12-01" to "2017-07-30"
-    Then I should see total amount "0"
+    Then I should see total amount "700"
 
 
