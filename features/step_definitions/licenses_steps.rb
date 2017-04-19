@@ -1,5 +1,5 @@
-When(/^I add month "([^"]*)" and amount "([^"]*)"$/) do |month, amount|
-  wait_for_text "dashboard"
+When(/^I add month "([^\"]*)" and amount "([^\"]*)"$/) do |month, amount|
+  wait_for_text "Dashboard"
 
   touch "Licenses"
   wait_for_text "Licenses"
@@ -12,6 +12,8 @@ When(/^I add month "([^"]*)" and amount "([^"]*)"$/) do |month, amount|
 end
 
 
-Then(/^I can see the license$/) do
-
+Then(/^I can see the license as blew$/) do |table|
+  sleep 3
+  actual = License.all.first
+  expect(actual.month).to eq(table.hashes[0][:month])
 end
