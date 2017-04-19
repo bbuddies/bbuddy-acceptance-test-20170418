@@ -6,10 +6,6 @@ class LicensesPage < PageBase
     'Licenses'
   end
 
-  def assert_message_show(msg)
-    wait_for_text msg
-  end
-
   def go_to_add_license
     touch('Add')
     AddLicensePage.open

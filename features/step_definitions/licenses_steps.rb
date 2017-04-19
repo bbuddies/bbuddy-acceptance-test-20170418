@@ -32,7 +32,7 @@ Then(/^I can see the Licenses$/) do |licenses|
 end
 
 Then(/^I can see the error dialog$/) do
-  LicensesPage.open.assert_message_show("yy")
+  AddLicensePage.open.assert_message_show("yy")
   sleep 5
 end
 

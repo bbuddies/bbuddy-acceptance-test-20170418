@@ -10,6 +10,10 @@ class AddLicensePage < PageBase
     wait_for_text amount
   end
 
+  def assert_message_show(msg)
+    wait_for_text msg
+  end
+
   def add_license(license)
     clear_then_enter_text('month', license.month)
     clear_then_enter_text('amount', license.amount)
