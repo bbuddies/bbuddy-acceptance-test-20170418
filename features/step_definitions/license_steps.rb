@@ -1,12 +1,13 @@
 When(/^I add month "([^"]*)" and amount "([^"]*)"$/) do |month, amount|
- touch ('Licenses')
- touch ('add_license_button')
- wait_for_text "Save"
- clear_then_enter_text('month_textfield', month)
- clear_then_enter_text('amount_textfield', amount)
- touch ('save_button')
+  wait_for_text_and_then_touch ('Licenses')
+  touch ('add_license_button')
+  wait_for_text "Save"
+  enter_text 'month_textfield', month
+  enter_text 'amount_textfield', amount
+  touch ('save_button')
 end
 
-Then(/^I should see the license$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see the license$/) do |table|
+  actual = License.all.first
+  # expect(actual.month).to eq()
 end
