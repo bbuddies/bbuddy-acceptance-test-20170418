@@ -11,16 +11,8 @@ Given(/^I have Licenses$/) do |licenses|
 end
 
 When(/^I add month "([^\"]*)" and amount "([^\"]*)"$/) do |month, amount|
-  wait_for_text "Dashboard"
-
-  touch "Licenses"
-  wait_for_text "Licenses"
-  touch 'Add'
-
-  enter_text('month',month)
-  enter_text('amount',amount)
-
-  touch "Save"
+  DashboardPage.open.go_to_licenses
+  LicensesPage.open.go_to_add_license.add_license(License.new(month: month, amount: amount))
 end
 
 Then(/^I can see the License with month "([^\"]*)" and amount "([^\"]*)"/) do |month, amount|
@@ -45,23 +37,10 @@ Then(/^I can see the error dialog$/) do
 end
 
 When(/^I query with start month "([^\"]*)" to end month "([^\"]*)"$/) do |start_month, end_amount|
-  wait_for_text "Dashboard"
-
-  touch "Licenses"
-  wait_for_text "Licenses"
-
-  touch "Query" # id= query
-
-  # wait_for_text "Licenses"
-  # touch 'Add'
-
-  enter_text('start_date',start_month)
-  enter_text('end_date',end_amount)
-
-  touch "Get Amount" #id = get_amount
+  LicensesPage.open.go_to_query_amount.query_amount(start_month, end_amount)
 end
 
-Then(/^I can see the amount "([^\"]*)"$/) do |text|
+Then(/^I can see the amount "([^\"]*)"$/) do |amount|
   sleep 5
-  wait_for_text text
+  LicensesPage.assert_amount_show(amount)
 end

@@ -6,6 +6,10 @@ class DashboardPage < PageBase
     'Dashboard'
   end
 
+  def go_to_licenses
+    touch('Licenses')
+  end
+
   def go_to_accounts
     touch('Accounts')
   end
