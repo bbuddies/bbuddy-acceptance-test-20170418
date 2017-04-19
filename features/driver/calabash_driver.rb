@@ -26,6 +26,11 @@ module Bbuddy module AcceptanceTest
       touch(text)
     end
 
+    def wait_for_element_and_enter_text(marked, text)
+      wait_for_element_exists(marked)
+      enter_text(marked, text)
+    end
+
     def marked_ui_query(query)
       if marked?(query)
         "* marked:'#{query}'"
