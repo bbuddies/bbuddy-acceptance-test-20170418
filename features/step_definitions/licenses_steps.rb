@@ -39,7 +39,7 @@ Then(/^I can see the Licenses$/) do |licenses|
   expect(actual.amount).to eq(licenses.first.amount)
 end
 
-Then(/^I can see "([^\"]*)"$/) do |text|
+Then(/^I can see the error dialog$/) do
   wait_for_text "yy"
   sleep 5
 end
@@ -47,7 +47,11 @@ end
 When(/^I query with start month "([^\"]*)" to end month "([^\"]*)"$/) do |start_month, end_amount|
   wait_for_text "Dashboard"
 
+  touch "Licenses"
+  wait_for_text "Licenses"
+
   touch "Query" # id= query
+
   # wait_for_text "Licenses"
   # touch 'Add'
 

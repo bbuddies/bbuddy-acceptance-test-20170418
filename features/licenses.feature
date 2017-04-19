@@ -34,7 +34,7 @@ Feature: licenses
 
   Scenario Outline: Invalid time format
     When I query with start month <start_month> to end month <end_month>
-    Then I can see "yy"
+    Then I can see the error dialog
     Examples:
       | start_month    | end_month      |
       |  "2017-04-30"  |  "2017-02-15"  |
@@ -42,7 +42,7 @@ Feature: licenses
 
   Scenario Outline: No insertion
     When I query with start month <start_month> to end month <end_month>
-    Then I can see "yy"
+    Then I can see the error dialog
     Examples:
       | start_month    | end_month      |
       |  ""            |  "2017-02-15"  |
