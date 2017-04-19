@@ -32,7 +32,7 @@ Then(/^I can see the Licenses$/) do |licenses|
 end
 
 Then(/^I can see the error dialog$/) do
-  wait_for_text "yy"
+  LicensesPage.open.assert_message_show("yy")
   sleep 5
 end
 
@@ -42,5 +42,5 @@ end
 
 Then(/^I can see the amount "([^\"]*)"$/) do |amount|
   sleep 5
-  LicensesPage.assert_amount_show(amount)
+  AddLicensePage.open.assert_amount_show(amount)
 end

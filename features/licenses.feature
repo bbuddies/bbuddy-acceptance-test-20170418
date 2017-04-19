@@ -18,6 +18,10 @@ Feature: licenses
       | "2017-04"   | "200"  |  "100"     |
       | "2017-03"   | "233"  |  "133"     |
 
+  Scenario: set amount equal 0
+    When I add month "2017-4" and amount "0"
+    Then I can see the error dialog
+
   Scenario Outline: normal cases
     Given I have Licenses
       | month       | amount |
@@ -49,6 +53,3 @@ Feature: licenses
       |  "2017-04-30"  |  ""            |
       |  ""            |  ""            |
 
-  Scenario: set amount equal 0
-    When I add month "2017-4" and amount "0"
-    Then I can see the error dialog
