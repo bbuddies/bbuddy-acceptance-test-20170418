@@ -8,6 +8,8 @@ When(/^I add month "([^"]*)" and amount "([^"]*)"$/) do |month, amount|
 end
 
 Then(/^I should see the license$/) do |table|
+  sleep 10
   actual = License.all.first
   # expect(actual.month).to eq()
+  expect(actual.month).to eq(table.hashes[0][:month])
 end
