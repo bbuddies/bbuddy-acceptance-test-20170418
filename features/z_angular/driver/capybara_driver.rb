@@ -43,6 +43,10 @@ module Bbuddy module AcceptanceTest
       page.assert_text(text)
     end
 
+    def get_text_from_element(query)
+      page.find(:xpath, ".//*[@id='#{query}']").text
+    end
+
     def visit(url)
       super(url)
     end

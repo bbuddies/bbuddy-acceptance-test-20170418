@@ -18,7 +18,12 @@ class SubscribePage < PageBase
     touch('calculate_button')
   end
 
+  def get_total_amount
+    get_text_from_element('total_amount_label')
+  end
+
   def verify_total_amount(expected_amount, actual_amount)
+    puts "Expected Amount:", expected_amount, "Actual Amount:", actual_amount
     raise expected_amount.eql? actual_amount
   end
 
