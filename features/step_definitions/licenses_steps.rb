@@ -7,8 +7,11 @@ When(/^I add month "([^"]*)" and amount "([^"]*)"$/) do |month, amount|
   LicensesPage.open.go_to_add_license.add_license(month, amount)
 end
 
-When(/^I subscribe from "([^"]*)" to "([^"]*)"$/) do |arg1, arg2|
-
+When(/^I calculate license fee from "([^"]*)" to "([^"]*)"$/) do |startDate, endDate|
+  DashboardPage.open.go_to_fee
+  enter_text("startDate", startDate)
+  enter_text("endDate", endDate)
+  touch "charge"
 end
 
 Then(/^I should see the license as below$/) do |table|
@@ -22,6 +25,6 @@ Then(/^I should see error message "License amount should be greater than zero!"$
   wait_for_text("License amount should be greater than zero!")
 end
 
-Then(/^I should see total license fee is "([^"]*)"$/) do |arg1|
-
+Then(/^I should see total license fee is "([^"]*)"$/) do |licenseFee|
+  expect(query("* marked:'total'").first).to eq(licenseFee)
 end

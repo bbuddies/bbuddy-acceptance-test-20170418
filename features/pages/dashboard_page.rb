@@ -18,4 +18,8 @@ class DashboardPage < PageBase
     touch('License')
   end
 
+  def go_to_fee
+    touch('Fee')
+  end
+
 end

@@ -25,5 +25,5 @@ Feature: Licenses
       | month | amount |
       | 2017-03 | 200  |
       | 2017-06 | 600  |
-    When I subscribe from "2017-03-13" to "2017-06-15"
+    When I calculate license fee from "2017-03-13" to "2017-06-15"
     Then I should see total license fee is "422.58"
