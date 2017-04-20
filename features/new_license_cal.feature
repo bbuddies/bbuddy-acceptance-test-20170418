@@ -23,7 +23,14 @@ Feature: New License cal
       | 2017-06 | 500  |
     When I set license period from "2017-05-03" to "2017-01-30"
     Then I should see error message "system error"
-
+    
+  Scenario: Verify empty license period
+    Given licenses period
+      | month | amount |
+      | 2017-01 | 200  |
+      | 2017-06 | 500  |
+    When I set license period from " " to " "
+    Then I should see error message "system error"
 
   Scenario: Verify out of month license period
     Given licenses period
@@ -31,6 +38,6 @@ Feature: New License cal
       | 2017-01 | 200  |
       | 2017-06 | 500  |
     When I set license period from "2016-12-01" to "2017-07-30"
-    Then I should see total amount "700"
+    Then I should see total amount "700.00"
 
 
