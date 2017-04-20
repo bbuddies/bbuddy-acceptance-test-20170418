@@ -6,10 +6,6 @@ class AddLicensePage < PageBase
     'Save'
   end
 
-  def assert_amount_show(amount)
-    wait_for_text amount
-  end
-
   def assert_message_show(msg)
     wait_for_text msg
   end

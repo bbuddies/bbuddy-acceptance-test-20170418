@@ -43,5 +43,5 @@ end
 
 Then(/^I can see the amount "([^\"]*)"$/) do |amount|
   sleep 5
-  AddLicensePage.open.assert_amount_show(amount)
+  QueryAmountPage.open.assert_amount_show(amount)
 end
