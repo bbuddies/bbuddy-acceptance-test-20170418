@@ -2,7 +2,9 @@ Given(/^licenses period$/) do |table|
   # table is a Cucumber::MultilineArgument::DataTable
   # pending # Write code here that turns the phrase above into concrete actions
   licences = AddLicensePage.open
-  licences.add_license(table.hashes[0][:month], table.hashes[0][:amount])
+  table.hashes.each do |row|
+    licences.add_license(row[:month], row[:amount])
+  end
 end
 
 When(/^I set license period from "([^"]*)" to "([^"]*)"$/) do |start_date, end_date|

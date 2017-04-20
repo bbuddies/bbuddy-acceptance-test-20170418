@@ -36,6 +36,11 @@ module Bbuddy module AcceptanceTest
       enter_text(marked, text)
     end
 
+    def get_text_from_element(query)
+      wait_for_element_exists(query)
+      query("* marked:'#{query}'", :text).first
+    end
+
     def marked_ui_query(query)
       if marked?(query)
         "* marked:'#{query}'"

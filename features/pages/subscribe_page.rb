@@ -24,7 +24,9 @@ class SubscribePage < PageBase
 
   def verify_total_amount(expected_amount, actual_amount)
     puts "Expected Amount:", expected_amount, "Actual Amount:", actual_amount
-    raise expected_amount.eql? actual_amount
+    if not expected_amount.eql? actual_amount
+      raise 'Total amount is not expected!!'
+    end
   end
 
 end
