@@ -21,9 +21,8 @@ Feature: Licenses
     Then I should see error message "License amount should be greater than zero!"
 
   Scenario: Verify total license fee in multiple months
-    Given existing the following licenses
-      | month   | amount |
-      | 2017-03 | 310    |
-      | 2017-06 | 600    |
+    Given I add month "2017-03" and amount "310"
+    And I add month "2017-06" and amount "600"
     When I calculate license fee from "2017-03-16" to "2017-06-15"
-    Then I should see total license fee is "450"
+    Then I should see total license fee is "460"
+

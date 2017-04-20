@@ -24,5 +24,5 @@ Then(/^I should see error message "License amount should be greater than zero!"$
 end
 
 Then(/^I should see total license fee is "([^"]*)"$/) do |licenseFee|
-  expect(query("* marked:'total'").first).to eq(licenseFee)
+  expect(query("* marked:'total'", :text).first).to eq(licenseFee)
 end
